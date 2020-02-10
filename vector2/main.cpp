@@ -1,11 +1,12 @@
 #include <stdio.h>
-#include <math.h>
 
-#include "vector2.hpp"
+#include "vector2.h"
 
 int main(){
   vector2 v1(1,0);
   vector2 v2(1,1);
+
+  printf("test vector2\n");
 
   (v1+v2).print();
   (v1-v2).print();
@@ -21,5 +22,4 @@ int main(){
   printf("%f\n",v1.angle(v2)*4);
   v2.unit().print();
   v2.perp().print();
-
 }

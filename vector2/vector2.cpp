@@ -1,15 +1,12 @@
 #include <stdio.h>
 #include <math.h>
 
-#include "vector2.hpp"
+#include "vector2.h"
 
 
 void vector2::print(){
   printf("v2(%f,%f)\n", x, y);
 }
-
-
-
 vector2 vector2::operator + (const vector2& v) const{
     return vector2(x+v.x, y+v.y);
 }
