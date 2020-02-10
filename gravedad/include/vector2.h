@@ -2,6 +2,7 @@
 
 class vector2{
 public:
+  vector2():x(0), y(0){};
   vector2(double coorx, double coory):x(coorx), y(coory){};
   double getx(){return x;}
   double gety(){return y;}
