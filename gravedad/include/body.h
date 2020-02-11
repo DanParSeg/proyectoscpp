@@ -1,8 +1,6 @@
 #ifndef __game_h_
 #define __game_h_
 
-const static double TIMESTEP=0.000001;
-
 class body{
 public:
   body();
@@ -30,7 +28,7 @@ private:
   vector2 f;
   vector2 worldacc;
   double invm=1;
-  double timestep=TIMESTEP;
+  //double timestep=TIMESTEP;
 };
 
 #endif

@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include <unistd.h>
 
 #include "vector2.h"
@@ -8,15 +10,20 @@
 
 
 int main(){
-  body b;
+  srand (time(NULL));
+  const int n=15000;
+  body b[n];
+  sf::CircleShape shape[n];
+
   sf::RenderWindow window(sf::VideoMode(640,480), "SFML window");
-  sf::CircleShape shape(10.f);
-  shape.setFillColor(sf::Color::Green);
 
-  b.setworldacc(vector2(0,9.8));
-  b.setvel(vector2(40,0));
-  b.setpos(vector2(100,0));
-
+  for(int i=0; i<n; i++){
+    b[i].setworldacc(vector2(0,9.8));
+    b[i].setvel(vector2(rand()%100-50,rand()%100-50));
+    b[i].setpos(vector2(rand()%320+160,rand()%200+100));
+    shape[i].setRadius(1);
+    shape[i].setFillColor(sf::Color(rand()%200+55,rand()%200+55,rand()%200+55));
+  }
   while (window.isOpen())
   {
       sf::Event event;
@@ -25,13 +32,14 @@ int main(){
           if (event.type == sf::Event::Closed)
               window.close();
       }
-      for(int i=0; i<10000; i++) b.step();
-      if(b.getpos().gety()>=460) b.setvel(vector2(b.getvel().getx(),-b.getvel().gety()));
-      if(b.getpos().getx()<=0 || b.getpos().getx()>=620) b.setvel(vector2(-b.getvel().getx(),b.getvel().gety()));
-      b.print();
-      shape.setPosition(b.getpos().getx(), b.getpos().gety());
       window.clear();
-      window.draw(shape);
+      for(int i=0; i<n; i++){
+        b[i].step();
+        if(b[i].getpos().gety()>=480) b[i].setvel(vector2(b[i].getvel().getx(),-b[i].getvel().gety()));
+        if(b[i].getpos().getx()<=0 || b[i].getpos().getx()>=640) b[i].setvel(vector2(-b[i].getvel().getx(),b[i].getvel().gety()));
+        shape[i].setPosition(b[i].getpos().getx(), b[i].getpos().gety());
+        window.draw(shape[i]);
+      }
       window.display();
   }
 }

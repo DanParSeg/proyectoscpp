@@ -2,6 +2,8 @@
 #include "vector2.h"
 #include "body.h"
 
+const static double timestep=0.1;
+
 body::body(){
 
 }
