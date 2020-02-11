@@ -40,13 +40,13 @@
 
 
 CXX      := -g++
-CXXFLAGS := -pedantic-errors -Wall -Wextra -Werror
-LDFLAGS  := -L/usr/lib -lstdc++ -lm -lsfml-graphics -lsfml-window -lsfml-system
+CXXFLAGS :=
+LDFLAGS  := -lsfml-graphics -lsfml-window -lsfml-system
 BUILD    := ./build
 OBJ_DIR  := $(BUILD)/objects
 APP_DIR  := $(BUILD)/apps
 TARGET   := program
-INCLUDE  := -Iinclude/
+INCLUDE  :=
 SRC      :=                      \
    $(wildcard src/aaa/*.cpp) \
    $(wildcard src/module2/*.cpp) \

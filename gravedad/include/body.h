@@ -1,9 +1,7 @@
 #ifndef __game_h_
 #define __game_h_
 
-#include "vector2.h"
-
-const static double TIMESTEP=0.0000001;
+const static double TIMESTEP=0.000001;
 
 class body{
 public:

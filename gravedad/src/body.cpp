@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include "vector2.h"
 #include "body.h"
 
 body::body(){
